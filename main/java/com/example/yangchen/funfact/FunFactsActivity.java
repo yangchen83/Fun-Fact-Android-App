@@ -3,21 +3,24 @@ package com.example.yangchen.funfact;
 import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
 
 public class FunFactsActivity extends ActionBarActivity {
 
+    public static final String TAG = FunFactsActivity.class.getSimpleName();
+
     private FactBook factBook = new FactBook();
     private ColorBook colorBook = new ColorBook();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +45,15 @@ public class FunFactsActivity extends ActionBarActivity {
         };
 
         showFactButton.setOnClickListener(listener);
+
+        // add toast
+        String welcome = "Welcome to the Fun Fact";
+        Toast welcomeToast = Toast.makeText(this, welcome, Toast.LENGTH_LONG);
+        welcomeToast.show();
+
+        // add log
+        Log.d(TAG, "logging from the onCreate() method");
+
     }
 
 
